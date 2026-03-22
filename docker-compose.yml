@@ -11,7 +11,7 @@ services:
       - PORT=8083
       - BACKEND_URL=http://backend:9083
       - HEALTHCHECK=/health
-      - TEAM_NAME=team3
+      - TEAM_NAME=aws-ai-team
       - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
       - AWS_SESSION_TOKEN=${AWS_SESSION_TOKEN}
@@ -19,7 +19,7 @@ services:
     depends_on:
       - backend
     networks:
-      - team3-network
+      - aws-ai-team-network
 
   backend:
     build:
@@ -29,14 +29,14 @@ services:
       - "9083:9083"
     environment:
       - PORT=9083
-      - TEAM_NAME=team3
+      - TEAM_NAME=aws-ai-team
       - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
       - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
       - AWS_SESSION_TOKEN=${AWS_SESSION_TOKEN}
       - AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION:-ap-southeast-2}
     networks:
-      - team3-network
+      - aws-ai-team-network
 
 networks:
-  team3-network:
+  aws-ai-team-network:
     driver: bridge
