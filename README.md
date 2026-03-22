@@ -19,37 +19,44 @@ A full-stack AI chatbot application that provides weather information and AWS re
 - CloudFormation stack information
 - Comprehensive AWS service coverage
 
-### 🌦️ Weather Service (`weather.py`) - **Testing**
-- Weather information queries using National Weather Service API
-- Climate data for global locations
-- HTTP request capabilities for weather APIs
-
 ## Project Structure
 
 ```
-chirantan/
-├── frontend/                 # Streamlit web application
-│   ├── app.py               # Main Streamlit app
-│   ├── components/          # UI components
-│   │   ├── chat.py         # Chat interface
-│   │   ├── sidebar.py      # Navigation sidebar
-│   │   └── file_upload.py  # File upload component
-│   ├── services/           # API integration
-│   │   └── api_client.py   # Backend API client
-│   ├── utils/              # Utility functions
-│   │   └── session_state.py # Session management
-│   ├── requirements.txt    # Python dependencies
-│   └── Dockerfile         # Container configuration
-├── backend/                # FastAPI weather service
-│   ├── weather.py         # Main API server with Bedrock integration
-│   ├── mock_server.py     # Development mock server
-│   ├── requirements.txt   # Python dependencies
-│   └── Dockerfile        # Container configuration
-└── scripts/              # Development and deployment scripts
-    ├── dev-start.sh      # Start development environment
-    ├── dev-frontend.sh   # Start frontend only
-    ├── dev-backend.sh    # Start backend only
-    └── build-and-deploy.sh # Build and deploy to AWS
+.
+├── backend/                        # FastAPI backend service
+│   ├── aws_agent.py               # Main FastAPI app with streaming endpoint
+│   ├── aws_tool.py                # use_aws Strands tool + AWSToolManager
+│   ├── http_tool.py               # HTTP utility tool
+│   ├── mock_server.py             # Development mock server
+│   ├── mock_strands.py            # Mock Strands/Agent for local dev (no Bedrock)
+│   ├── requirements.txt           # Python dependencies
+│   └── Dockerfile                 # Container configuration
+├── frontend/                      # Streamlit web application
+│   ├── app.py                     # Main Streamlit entry point
+│   ├── components/
+│   │   ├── chat.py                # Chat interface + metadata rendering
+│   │   ├── sidebar.py             # Navigation sidebar
+│   │   └── file_upload.py         # File upload component
+│   ├── services/
+│   │   └── api_client.py          # Backend API client
+│   ├── utils/
+│   │   ├── http_client.py         # HTTP client with retry + streaming support
+│   │   ├── json_parser.py         # Safe JSON parsing utilities
+│   │   └── session_state.py       # Streamlit session management
+│   ├── requirements.txt           # Python dependencies
+│   └── Dockerfile                 # Container configuration
+├── scripts/                       # Deployment & dev helper scripts
+│   ├── dev-start.sh               # Start full dev environment
+│   ├── dev-frontend.sh            # Start frontend only
+│   ├── dev-backend.sh             # Start backend only
+│   ├── build-and-deploy.sh        # Build & push Docker images to AWS
+│   ├── deploy-service.sh          # Deploy ECS service
+│   └── validate-team-deployment.sh# Validate ECS deployment
+├── dev.sh                         # Main dev script (start/stop/status/logs)
+├── docker-compose.yml             # Docker Compose for local stack
+├── test_regions.py                # Region connectivity tests
+├── test_ssm.py                    # SSM parameter tests
+└── README.md
 ```
 
 ## Features
