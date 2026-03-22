@@ -2,7 +2,7 @@
 # Enterprise Agents using Strands
 # Architecture & Implementation: How to build Enterprise Agents using Strands
 
-A full-stack AI chatbot application that provides weather information and AWS resource queries using AWS Bedrock and Strands agents.
+A full-stack AI chatbot application that provides AWS resource queries using AWS Bedrock and Strands agents.
 
 ## Architecture
 
@@ -138,7 +138,6 @@ cd ..
 # Terminal 1: Backend (choose one)
 cd backend
 .venv/bin/uvicorn aws_agent:app --host 0.0.0.0 --port 9083 --reload    # AWS agent
-.venv/bin/uvicorn weather:app --host 0.0.0.0 --port 9083 --reload      # Weather service
 
 # Terminal 2: Frontend
 cd frontend
@@ -149,7 +148,6 @@ cd frontend
 ```bash
 # Backend (from backend/ directory - choose one)
 python aws_agent.py    # AWS resource queries (default)
-python weather.py      # Weather service
 
 # Frontend (from frontend/ directory)
 streamlit run app.py
@@ -209,7 +207,6 @@ docker-compose down
 - Strands agents framework
 - AWS Bedrock integration
 - AWS CLI integration (aws_agent)
-- HTTP request tools (weather service)
 
 ## Troubleshooting
 
@@ -248,8 +245,6 @@ echo $BACKEND_APP
 # Set backend app preference (persistent)
 export BACKEND_APP=aws_agent    # Default
 
-# Or use one-time selection
-BACKEND_APP=weather ./dev.sh start backend
 ```
 
 ## Deployment
