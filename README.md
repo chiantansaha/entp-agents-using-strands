@@ -62,8 +62,6 @@ A full-stack AI chatbot application that provides weather information and AWS re
 ## Features
 
 - **Interactive Chat Interface**: Streamlit-based web UI with real-time messaging
-- **Dual Backend Support**: Switch between weather and AWS resource query services
-- **Weather Information**: AI-powered weather queries using external APIs
 - **AWS Resource Management**: Query and manage AWS resources via natural language
 - **AWS Bedrock Integration**: Amazon Nova 2 Lite v1.0 model for natural language processing
 - **Strands Agent Framework**: Structured AI agent implementation
@@ -91,6 +89,9 @@ export AWS_DEFAULT_REGION=ap-southeast-2
 export AWS_ACCESS_KEY_ID=your_access_key
 export AWS_SECRET_ACCESS_KEY=your_secret_key
 export AWS_SESSION_TOKEN=your_session_token  # if using temporary credentials
+
+# Check 
+aws sts get-caller-identity
 ```
 
 #### Option 1: Development Helper Scripts (Fastest)
