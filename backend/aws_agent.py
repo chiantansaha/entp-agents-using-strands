@@ -4,7 +4,7 @@ import json
 import os
 from datetime import datetime
 import time
-from aws_tool import AWSToolManager, use_aws
+from strands_tools import use_aws
 from fastapi import FastAPI, Request, Response, HTTPException
 from fastapi.responses import StreamingResponse, PlainTextResponse
 from pydantic import BaseModel
@@ -16,7 +16,6 @@ try:
 except ImportError:
     from mock_strands import Agent, tool, BedrockModel
 from botocore.config import Config as BotocoreConfig
-import boto3
 from botocore.exceptions import ClientError, NoCredentialsError
 import re
 
@@ -706,9 +705,6 @@ async def query_aws_resources_streaming(request: QueryRequest):
             raise HTTPException(status_code=400, detail="No query provided")
 
         async def stream_aws_response():
-            from aws_tool import use_aws, set_session
-            set_session(boto3.Session(), region)
-
             aws_agent = Agent(
                 model=bedrock_model,
                 system_prompt=get_aws_system_prompt(region),
