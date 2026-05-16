@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "🚀 Starting EBA Development Environment with Docker Compose"
+echo "🚀 Starting awsugsg Development Environment with Docker Compose"
 echo "=========================================================="
 
 # Change to project root

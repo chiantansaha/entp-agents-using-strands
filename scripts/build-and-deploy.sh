@@ -27,7 +27,7 @@ if [ ! -f "$DOCKERFILE_PATH" ]; then
 fi
 
 # Set variables
-ECR_REPO="eba-${TEAM_NAME}-${SERVICE_TYPE}"
+ECR_REPO="awsugsg-${TEAM_NAME}-${SERVICE_TYPE}"
 BUILD_CONTEXT=$(dirname "$DOCKERFILE_PATH")
 
 echo "🔨 Building Docker image..."

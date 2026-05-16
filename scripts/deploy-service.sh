@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# EBA Service Deployment Script
+# awsugsg Service Deployment Script
 # Usage: ./deploy-service.sh <team_name> <service_type> <image_tag> [region]
 
 set -e
@@ -28,9 +28,9 @@ fi
 
 # Set variables
 ACCOUNT_ID=$(aws sts get-caller-identity --query Account --output text)
-ECR_REPO="eba-${TEAM_NAME}-${SERVICE_TYPE}"
+ECR_REPO="awsugsg-${TEAM_NAME}-${SERVICE_TYPE}"
 ECR_URI="${ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/${ECR_REPO}"
-CLUSTER_NAME="EBA-${TEAM_NAME}"
+CLUSTER_NAME="awsugsg-${TEAM_NAME}"
 SERVICE_NAME="${TEAM_NAME}-${SERVICE_TYPE}"
 
 echo "🚀 Deploying ${SERVICE_TYPE} for team ${TEAM_NAME}"

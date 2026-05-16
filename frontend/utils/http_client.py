@@ -21,7 +21,7 @@ class HTTPClient:
         # Set default headers
         self.session.headers.update({
             'Content-Type': 'application/json',
-            'User-Agent': 'EBA-Frontend/1.0'
+            'User-Agent': 'awsugsg-Frontend/1.0'
         })
     
     def _make_request_with_retry(self, method: str, endpoint: str, **kwargs) -> Dict[str, Any]:

@@ -27,17 +27,17 @@ terraform validate
 
 # Check if ECR repositories exist
 echo "🐳 Checking ECR repositories..."
-aws ecr describe-repositories --repository-names "eba-${TEAM_NAME}-frontend" --region $(terraform output -raw region) || echo "⚠️  Frontend ECR repository not found"
-aws ecr describe-repositories --repository-names "eba-${TEAM_NAME}-backend" --region $(terraform output -raw region) || echo "⚠️  Backend ECR repository not found"
+aws ecr describe-repositories --repository-names "awsugsg-${TEAM_NAME}-frontend" --region $(terraform output -raw region) || echo "⚠️  Frontend ECR repository not found"
+aws ecr describe-repositories --repository-names "awsugsg-${TEAM_NAME}-backend" --region $(terraform output -raw region) || echo "⚠️  Backend ECR repository not found"
 
 # Check if ECS cluster exists
 echo "🚀 Checking ECS cluster..."
-aws ecs describe-clusters --clusters "EBA-${TEAM_NAME}" --region $(terraform output -raw region) || echo "⚠️  ECS cluster not found"
+aws ecs describe-clusters --clusters "awsugsg-${TEAM_NAME}" --region $(terraform output -raw region) || echo "⚠️  ECS cluster not found"
 
 # Check if services are running
 echo "🔄 Checking ECS services..."
-aws ecs describe-services --cluster "EBA-${TEAM_NAME}" --services "${TEAM_NAME}-frontend" --region $(terraform output -raw region) || echo "⚠️  Frontend service not found"
-aws ecs describe-services --cluster "EBA-${TEAM_NAME}" --services "${TEAM_NAME}-backend" --region $(terraform output -raw region) || echo "⚠️  Backend service not found"
+aws ecs describe-services --cluster "awsugsg-${TEAM_NAME}" --services "${TEAM_NAME}-frontend" --region $(terraform output -raw region) || echo "⚠️  Frontend service not found"
+aws ecs describe-services --cluster "awsugsg-${TEAM_NAME}" --services "${TEAM_NAME}-backend" --region $(terraform output -raw region) || echo "⚠️  Backend service not found"
 
 # Check ALB target groups
 echo "🎯 Checking ALB target groups..."
