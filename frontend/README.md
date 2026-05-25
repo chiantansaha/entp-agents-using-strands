@@ -30,12 +30,12 @@ streamlit run app.py
 docker build -t streamlit-frontend .
 
 # Run the container
-docker run -p 8501:8501 -e BACKEND_URL=http://localhost:8000 streamlit-frontend
+docker run -p 8501:8501 -e BACKEND_URL=http://localhost:9083 streamlit-frontend
 ```
 
 ## Environment Variables
 
-- `BACKEND_URL`: FastAPI backend service URL (default: http://localhost:8000)
+- `BACKEND_URL`: FastAPI backend service URL (default: http://localhost:9083)
 - `LOG_LEVEL`: Application logging level (default: INFO)
 
 ## Project Structure
